@@ -1,0 +1,78 @@
+<view class="main">
+	<view class="dressup">
+		<image crossOrigin="anonymous" src="./model/身体1.png" class="dress-body dress-part"></image>
+		<image crossOrigin="anonymous" src="" class="dress-pants dress-part"></image>
+		<image crossOrigin="anonymous" src="" class="dress-coat dress-part"></image>
+		<image crossOrigin="anonymous" src="" class="dress-eye dress-part"></image>
+		<image crossOrigin="anonymous" src="" class="dress-mouth dress-part"></image>
+		<image crossOrigin="anonymous" src="" class="dress-hair dress-part"></image>
+	</view>
+
+	<view class="choose">
+		<view class="page__bd">
+			<view class="weui-cells__title">请选择样式</view>
+			<picker bindchange="bindPickerBodyChange" value="{{bodyIndex}}" range="{{bodyArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">身体样式</view>
+					<view class="weui-cell__ft">{{bodyArray[bodyIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+
+		<view class="page__bd">
+			<picker bindchange="bindPickerHairChange" value="{{hairIndex}}" range="{{hairArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">头发样式</view>
+					<view class="weui-cell__ft">{{hairArray[hairIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+
+		<view class="page__bd">
+			<picker bindchange="bindPickerEyeChange" value="{{eyeIndex}}" range="{{eyeArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">眼睛样式</view>
+					<view class="weui-cell__ft">{{eyeArray[eyeIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+
+		<view class="page__bd">
+			<picker bindchange="bindPickerMouseChange" value="{{MouseIndex}}" range="{{mouseArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">嘴巴样式</view>
+					<view class="weui-cell__ft">{{mouseArray[mouseIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+
+		<view class="page__bd">
+			<picker bindchange="bindPickerCoatChange" value="{{coatIndex}}" range="{{coatArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">上衣样式</view>
+					<view class="weui-cell__ft">{{coatArray[coatIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+
+		<view class="page__bd">
+			<picker bindchange="bindPickerPantChange" value="{{pantIndex}}" range="{{pantArray}}"
+				class="weui-cells weui-cells_after-title">
+				<view class="picker weui-cell">
+					<view class="weui-cell__bd">下衣样式</view>
+					<view class="weui-cell__ft">{{pantArray[pantIndex]}}</view>
+				</view>
+			</picker>
+		</view>
+	</view>
+
+	<view class="options">
+		<a class="weui-btn weui-btn_default">随机</a>
+		<view class="weui-btn weui-btn_primary">保存到相册</view>
+	</view>
+</view>

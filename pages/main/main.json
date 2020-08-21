@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wxml-to-canvas": "wxml-to-canvas",
+    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
+  }
+}

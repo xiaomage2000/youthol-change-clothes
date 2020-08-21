@@ -1,0 +1,23 @@
+.dressup {
+  width: 85%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.dress-part {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
+}
+
+.choose {
+  padding-top: 410px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.options {
+  margin: 15px;
+}

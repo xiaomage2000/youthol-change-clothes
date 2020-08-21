@@ -1,0 +1,14 @@
+<view class="index">
+	<view class="welcome">
+		<view class="welcomeWord">
+			<view>欢迎使用换装小程序</view>
+			<view>您可以合成自己与学校建筑物的“合影”哦！</view>
+		</view>
+		<view class="form">
+			<form bindsubmit="goNext">
+				<button formType="submit" class="startBtn">开始创作吧</button>
+			</form>
+		</view>
+	</view>
+	<view class="footer">©青春在线</view>
+</view>

@@ -1,0 +1,56 @@
+.welcome {
+  text-align: center;
+}
+page {
+  height: 100%;
+}
+.index {
+  min-height: 100%;
+  background: url("https://cdn.jsdelivr.net/gh/xiaomage2000/static-files/IMAGES/greetingcard-index.jpg")
+}
+.index {
+    background-size: 100% 100%;
+}
+.welcomeWord {
+  padding-top: 40%;
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+.welcomeWord view {
+  padding: .5rem;
+}
+.form {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 20px;
+}
+form input {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid;
+  color: #757272;
+  background-color: white;
+  border-radius: 1rem;
+}
+.startBtn {
+  width: 100%;
+  color: white;
+  background-color: #85a5ff;
+  margin-top: 200px;
+}
+.alert {
+  font-size: 14px;
+  color: #757272;
+  padding: 2rem;
+}
+.footer {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 14px;
+  margin: 0 auto;
+  color: #757272;
+}
