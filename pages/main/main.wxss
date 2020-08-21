@@ -9,7 +9,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 400px;
+  height: 415px;
 }
 
 .choose {

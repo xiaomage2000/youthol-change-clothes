@@ -1,11 +1,11 @@
 <view class="main">
 	<view class="dressup">
-		<image crossOrigin="anonymous" src="./model/身体1.png" class="dress-body dress-part"></image>
-		<image crossOrigin="anonymous" src="" class="dress-pants dress-part"></image>
-		<image crossOrigin="anonymous" src="" class="dress-coat dress-part"></image>
-		<image crossOrigin="anonymous" src="" class="dress-eye dress-part"></image>
-		<image crossOrigin="anonymous" src="" class="dress-mouth dress-part"></image>
-		<image crossOrigin="anonymous" src="" class="dress-hair dress-part"></image>
+		<image crossOrigin="anonymous" src="{{bodySrc}}" class="dress-body dress-part"></image>
+		<image crossOrigin="anonymous" src="{{pantSrc}}" class="dress-pants dress-part"></image>
+		<image crossOrigin="anonymous" src="{{coatSrc}}" class="dress-coat dress-part"></image>
+		<image crossOrigin="anonymous" src="{{eyeSrc}}" class="dress-eye dress-part"></image>
+		<image crossOrigin="anonymous" src="{{mouseSrc}}" class="dress-mouth dress-part"></image>
+		<image crossOrigin="anonymous" src="{{hairSrc}}" class="dress-hair dress-part"></image>
 	</view>
 
 	<view class="choose">
