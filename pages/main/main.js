@@ -18,6 +18,10 @@ Page({
     coatIndex: '',
     mouseIndex: '',
     pantIndex: '',
+    showOneButtonDialog: false,
+    oneButton: [{
+      text: '确定'
+    }],
   },
 
   //更改picker事件 代码冗余有点多，以后想办法减少下
@@ -63,7 +67,13 @@ Page({
       pantSrc: '../model/pant' + temp + '.png',
     })
   },
-  randomButton: function (e) {
+  tapDialogButton(e) {
+    this.setData({
+      dialogShow: false,
+      showOneButtonDialog: false
+    })
+  },
+  randomButton: function () {
     var bodyRandom = 1 + parseInt(Math.random() * 3);
     var hairRandom = 1 + parseInt(Math.random() * 2);
     var eyeRandom = 1 + parseInt(Math.random() * 2);
@@ -87,8 +97,15 @@ Page({
   },
   goNext: function (e) {
     var that = this;
-    wx.navigateTo({
-      url: '../result/result?body=' + that.data.bodySrc + '&hair=' + that.data.hairSrc + "&eye=" + that.data.eyeSrc + "&mouse=" + that.data.mouseSrc + "&coat=" + that.data.coatSrc + "&pant=" + that.data.pantSrc,
-    })
+    if (that.data.bodySrc == '' || that.data.hairSrc == '' || that.data.eyeSrc == '' || that.data.mouseSrc == '' || that.data.coatSrc == '' || that.data.pantSrc == '') {
+      this.setData({
+        showOneButtonDialog: true
+      })
+    } else {
+      wx.navigateTo({
+        url: '../result/result?body=' + that.data.bodySrc + '&hair=' + that.data.hairSrc + "&eye=" + that.data.eyeSrc + "&mouse=" + that.data.mouseSrc + "&coat=" + that.data.coatSrc + "&pant=" + that.data.pantSrc,
+      })
+    }
+
   }
 })
