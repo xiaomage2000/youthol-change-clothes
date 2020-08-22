@@ -72,7 +72,7 @@
 	</view>
 
 	<view class="options">
-		<a class="weui-btn weui-btn_default">随机</a>
-		<view class="weui-btn weui-btn_primary">保存到相册</view>
+		<view class="weui-btn weui-btn_default">随机</view>
+		<view class="weui-btn weui-btn_primary" bindtap="goNext">下一步</view>
 	</view>
 </view>

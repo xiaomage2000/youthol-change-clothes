@@ -1,11 +1,6 @@
-const {
-  wxml,
-  style
-} = require('./demo.js')
 Page({
   data: {
-    src: '',
-    bodySrc: './model/身体1.png',
+    bodySrc: '../model/body1.png',
     hairSrc: '',
     eyeSrc: '',
     mouseSrc: '',
@@ -24,68 +19,48 @@ Page({
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       bodyIndex: e.detail.value,
-      bodySrc: './model/身体' + temp + '.png',
+      bodySrc: '../model/body' + temp + '.png',
     })
   },
   bindPickerHairChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       hairIndex: e.detail.value,
-      hairSrc:'./model/头发' + temp + '.png',
+      hairSrc: '../model/hair' + temp + '.png',
     })
   },
   bindPickerEyeChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       eyeIndex: e.detail.value,
-      eyeSrc: './model/眼睛' + temp + '.png',
+      eyeSrc: '../model/eye' + temp + '.png',
     })
   },
   bindPickerMouseChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       mouseIndex: e.detail.value,
-      mouseSrc: './model/嘴巴' + temp + '.png',
+      mouseSrc: '../model/mouse' + temp + '.png',
     })
   },
   bindPickerCoatChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       coatIndex: e.detail.value,
-      coatSrc: './model/上衣' + temp + '.png',
+      coatSrc: '../model/coat' + temp + '.png',
     })
   },
   bindPickerPantChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       pantIndex: e.detail.value,
-      pantSrc: './model/下衣' + temp + '.png',
+      pantSrc: '../model/pant' + temp + '.png',
     })
   },
-
-
-
-  onLoad() {
-    this.widget = this.selectComponent('.widget')
-  },
-  renderToCanvas() {
-    const p1 = this.widget.renderToCanvas({
-      wxml,
-      style
-    })
-    p1.then((res) => {
-      console.log('container', res.layoutBox)
-      this.container = res
-    })
-  },
-  extraImage() {
-    const p2 = this.widget.canvasToTempFilePath()
-    p2.then(res => {
-      this.setData({
-        src: res.tempFilePath,
-        width: this.container.layoutBox.width,
-        height: this.container.layoutBox.height
-      })
+  goNext: function(e) {
+    var that = this;
+    wx.navigateTo({
+      url: '../result/result?body=' + that.data.bodySrc + '&hair=' + that.data.hairSrc + "&eye=" + that.data.eyeSrc + "&mouse=" + that.data.mouseSrc + "&coat=" + that.data.coatSrc + "&pant=" + that.data.pantSrc,
     })
   }
 })
