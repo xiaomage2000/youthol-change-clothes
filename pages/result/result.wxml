@@ -1,8 +1,7 @@
 <view>
   <view class="titles">
-    <view class="title">生成大成功！</view>
+    <view class="title">生成大成功</view>
     <view class="sub-title">生成成功啦，快快保存下来分享给你的朋友吧！</view>
-    {{bodySrc}}
   </view>
   <wxml-to-canvas class="widget"></wxml-to-canvas>
   <view class="options">
