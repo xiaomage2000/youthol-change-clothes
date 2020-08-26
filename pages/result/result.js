@@ -36,8 +36,8 @@ Page({
       const style = {
         dressPart: {
           position: 'absolute',
-          width: 20,
-          height: 30,
+          width: 200,
+          height: 300,
           top: 0,
           left: 0,
         }
@@ -50,5 +50,26 @@ Page({
         style
       })
     }, 50)
+  },
+  saveImg() {
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: 200,                     //画布宽高
+      height: 300,
+      destWidth: 800,                 //画布宽高*dpr 以iphone6为准
+      destHeight: 1200,
+      canvasId: 'canvas',
+      success: function (res) {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (res) {
+            wx.showToast({
+              title: '保存成功！'
+            })
+          }
+        })  
+      }
+    })
   },
 })
