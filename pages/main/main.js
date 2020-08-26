@@ -73,6 +73,7 @@ Page({
       showOneButtonDialog: false
     })
   },
+  //随机按钮
   randomButton: function () {
     var bodyRandom = parseInt(Math.random() * 3);
     var hairRandom = parseInt(Math.random() * 2);
@@ -95,7 +96,8 @@ Page({
       pantIndex: pantRandom,
     })
   },
-  goNext: function (e) {
+  //跳转到result页面，将图片数组的index值传过去，以供下一个页面生成canvas保存
+  goNext: function () {
     var that = this;
     if (that.data.bodySrc == '' || that.data.hairSrc == '' || that.data.eyeSrc == '' || that.data.mouseSrc == '' || that.data.coatSrc == '' || that.data.pantSrc == '') {
       this.setData({
