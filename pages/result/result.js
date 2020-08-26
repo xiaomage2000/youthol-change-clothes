@@ -7,7 +7,7 @@ Page({
     coatSrc: '',
     pantSrc: '',
   },
-  onLoad: function (e) {
+  onLoad(e) {
     const wxml = `
     <view class="dressup">
 		    <image src="${e.body}" class="dress-body dress-part"></image>
@@ -20,17 +20,18 @@ Page({
     `
     const wxss = {
       dressup: {
-        width: '85%',
-        margin: '0 auto',
+        width: 200,
+        height: 300,
+        backgroundColor: '#666',
         position: 'relative',
       },
       dressPart: {
-        width: '100%',
         position: 'absolute',
-        top: '0',
-        left: '0',
-        height: '415px',
-      },
+        width: 200,
+        height: 300,
+        top: 0,
+        left: 0,
+      }
     }
     this.setData({
       bodySrc: e.body,
@@ -41,7 +42,9 @@ Page({
       pantSrc: e.pant,
     })
     this.widget = this.selectComponent('.widget')
+    console.log(this.widget)
     console.log(wxml)
+    console.log(wxss)
     this.widget.renderToCanvas({
       wxml,
       wxss
