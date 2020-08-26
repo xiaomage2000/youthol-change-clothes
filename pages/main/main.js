@@ -1,6 +1,6 @@
 Page({
   data: {
-    bodySrc: '../model/body1.png',
+    bodySrc: '/model/body1.png',
     hairSrc: '',
     eyeSrc: '',
     mouseSrc: '',
@@ -29,42 +29,42 @@ Page({
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       bodyIndex: e.detail.value,
-      bodySrc: '../model/body' + temp + '.png',
+      bodySrc: '/model/body' + temp + '.png',
     })
   },
   bindPickerHairChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       hairIndex: e.detail.value,
-      hairSrc: '../model/hair' + temp + '.png',
+      hairSrc: '/model/hair' + temp + '.png',
     })
   },
   bindPickerEyeChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       eyeIndex: e.detail.value,
-      eyeSrc: '../model/eye' + temp + '.png',
+      eyeSrc: '/model/eye' + temp + '.png',
     })
   },
   bindPickerMouseChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       mouseIndex: e.detail.value,
-      mouseSrc: '../model/mouse' + temp + '.png',
+      mouseSrc: '/model/mouse' + temp + '.png',
     })
   },
   bindPickerCoatChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       coatIndex: e.detail.value,
-      coatSrc: '../model/coat' + temp + '.png',
+      coatSrc: '/model/coat' + temp + '.png',
     })
   },
   bindPickerPantChange: function (e) {
     var temp = parseInt(e.detail.value) + 1;
     this.setData({
       pantIndex: e.detail.value,
-      pantSrc: '../model/pant' + temp + '.png',
+      pantSrc: '/model/pant' + temp + '.png',
     })
   },
   tapDialogButton(e) {
@@ -74,25 +74,25 @@ Page({
     })
   },
   randomButton: function () {
-    var bodyRandom = 1 + parseInt(Math.random() * 3);
-    var hairRandom = 1 + parseInt(Math.random() * 2);
-    var eyeRandom = 1 + parseInt(Math.random() * 2);
-    var mouseRandom = 1 + parseInt(Math.random() * 2);
-    var coatRandom = 1 + parseInt(Math.random() * 2);
-    var pantRandom = 1 + parseInt(Math.random() * 2);
+    var bodyRandom = parseInt(Math.random() * 3);
+    var hairRandom = parseInt(Math.random() * 2);
+    var eyeRandom = parseInt(Math.random() * 2);
+    var mouseRandom = parseInt(Math.random() * 2);
+    var coatRandom = parseInt(Math.random() * 2);
+    var pantRandom = parseInt(Math.random() * 2);
     this.setData({
-      bodySrc: '../model/body' + bodyRandom + '.png',
-      hairSrc: '../model/hair' + hairRandom + '.png',
-      eyeSrc: '../model/eye' + eyeRandom + '.png',
-      mouseSrc: '../model/mouse' + mouseRandom + '.png',
-      coatSrc: '../model/coat' + coatRandom + '.png',
-      pantSrc: '../model/pant' + pantRandom + '.png',
-      bodyIndex: bodyRandom - 1,
-      hairIndex: hairRandom - 1,
-      eyeIndex: eyeRandom - 1,
-      mouseIndex: mouseRandom - 1,
-      coatIndex: coatRandom - 1,
-      pantIndex: pantRandom - 1,
+      bodySrc: '/model/body' + (bodyRandom + 1) + '.png',
+      hairSrc: '/model/hair' + (hairRandom + 1) + '.png',
+      eyeSrc: '/model/eye' + (eyeRandom + 1) + '.png',
+      mouseSrc: '/model/mouse' + (mouseRandom + 1) + '.png',
+      coatSrc: '/model/coat' + (coatRandom + 1) + '.png',
+      pantSrc: '/model/pant' + (pantRandom + 1) + '.png',
+      bodyIndex: bodyRandom,
+      hairIndex: hairRandom,
+      eyeIndex: eyeRandom,
+      mouseIndex: mouseRandom,
+      coatIndex: coatRandom,
+      pantIndex: pantRandom,
     })
   },
   goNext: function (e) {
@@ -103,9 +103,8 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../result/result?body=' + that.data.bodySrc + '&hair=' + that.data.hairSrc + "&eye=" + that.data.eyeSrc + "&mouse=" + that.data.mouseSrc + "&coat=" + that.data.coatSrc + "&pant=" + that.data.pantSrc,
+        url: '../result/result?body=' + that.data.bodyIndex + '&hair=' + that.data.hairIndex + "&eye=" + that.data.eyeIndex + "&mouse=" + that.data.mouseIndex + "&coat=" + that.data.coatIndex + "&pant=" + that.data.pantIndex,
       })
     }
-
   }
 })

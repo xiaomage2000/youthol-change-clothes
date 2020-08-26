@@ -12,3 +12,9 @@
 .options {
   margin: 40px 0 0 0;
 }
+
+.widget-view {
+  width: 200px;
+  height: 300px;
+  margin: 0 auto;
+}

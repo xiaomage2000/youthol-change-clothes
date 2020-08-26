@@ -1,24 +1,34 @@
 Page({
   data: {
-    bodySrc: '',
-    hairSrc: '',
-    eyeSrc: '',
-    mouseSrc: '',
-    coatSrc: '',
-    pantSrc: '',
+    bodyIndex: '',
+    hairIndex: '',
+    eyeIndex: '',
+    mouseIndex: '',
+    coatIndex: '',
+    pantIndex: '',
   },
   onLoad(e) {
+    this.widget = this.selectComponent('.widget')
+    this.data.bodyIndex = parseInt(e.body) + 1
+    this.data.hairIndex = parseInt(e.hair) + 1
+    this.data.eyeIndex = parseInt(e.eye) + 1
+    this.data.mouseIndex = parseInt(e.mouse) + 1
+    this.data.coatIndex = parseInt(e.coat) + 1
+    this.data.pantIndex = parseInt(e.pant) + 1
+  },
+  testButton() {
+    console.log(this.data.bodyIndex)
     const wxml = `
-    <view class="dressup">
-		    <image src="${e.body}" class="dress-body dress-part"></image>
-		    <image src="${e.hair}" class="dress-pants dress-part"></image>
-		    <image src="${e.coat}" class="dress-coat dress-part"></image>
-		    <image src="${e.eye}" class="dress-eye dress-part"></image>
-		    <image src="${e.mouse}" class="dress-mouth dress-part"></image>
-		    <image src="${e.hair}" class="dress-hair dress-part"></image>
-	    </view>
+<view class="dressup">
+	<image src="/model/body${this.data.bodyIndex}.png" class="dress-part"></image>
+	<image src="/model/hair${this.data.hairIndex}.png" class="dress-part"></image>
+	<image src="/model/coat${this.data.coatIndex}.png" class="dress-part"></image>
+	<image src="/model/eye${this.data.eyeIndex}.png" class="dress-part"></image>
+	<image src="/model/mouse${this.data.mouseIndex}.png" class="dress-part"></image>
+	<image src="/model/hair${this.data.hairIndex}.png" class="dress-part"></image>
+</view>
     `
-    const wxss = {
+    const style = {
       dressup: {
         width: 200,
         height: 300,
@@ -27,27 +37,26 @@ Page({
       },
       dressPart: {
         position: 'absolute',
-        width: 200,
-        height: 300,
+        width: 20,
+        height: 30,
         top: 0,
         left: 0,
       }
     }
-    this.setData({
-      bodySrc: e.body,
-      hairSrc: e.hair,
-      eyeSrc: e.eye,
-      mouseSrc: e.mouse,
-      coatSrc: e.coat,
-      pantSrc: e.pant,
-    })
-    this.widget = this.selectComponent('.widget')
+    // this.setData({
+    //   bodyIndex: e.body,
+    //   hairIndex: e.hair,
+    //   eyeIndex: e.eye,
+    //   mouseIndex: e.mouse,
+    //   coatIndex: e.coat,
+    //   pantIndex: e.pant,
+    // })
     console.log(this.widget)
     console.log(wxml)
-    console.log(wxss)
+    console.log(style)
     this.widget.renderToCanvas({
       wxml,
-      wxss
+      style
     })
   },
 })
