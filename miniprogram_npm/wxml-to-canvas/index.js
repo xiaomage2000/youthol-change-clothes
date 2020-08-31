@@ -107,11 +107,11 @@ Component({
   properties: {
     width: {
       type: Number,
-      value: 400
+      value: 300
     },
     height: {
       type: Number,
-      value: 300
+      value: 450
     }
   },
   lifetimes: {

@@ -9,7 +9,6 @@ Page({
   },
   //接收上个页面的参数
   onLoad(e) {
-    this.widget = this.selectComponent('.widget')
     this.data.bodyIndex = parseInt(e.body) + 1
     this.data.hairIndex = parseInt(e.hair) + 1
     this.data.eyeIndex = parseInt(e.eye) + 1
@@ -18,13 +17,20 @@ Page({
     this.data.pantIndex = parseInt(e.pant) + 1
   },
   //延时执行：canvas画布生成需要时间，因此需要给一点时间用于canvas画布生成。
-  onReady: function () {
+  onShow: function () {
+    wx.showLoading({
+      title: '请稍后...',
+    })
     var that = this;
+    setTimeout(function () {
+      var that1 = that;
+      that1.widget = that1.selectComponent('.widget')
+    }, 1500)
     setTimeout(function () {
       var that2 = that;
       console.log(that2.data.bodyIndex)
       const wxml = `
-      <view>
+      <view class="dress-up">
         <image src="/model/body${that2.data.bodyIndex}.png" class="dress-part"></image>
         <image src="/model/hair${that2.data.hairIndex}.png" class="dress-part"></image>
         <image src="/model/coat${that2.data.coatIndex}.png" class="dress-part"></image>
@@ -34,10 +40,15 @@ Page({
       </view>
           `
       const style = {
+        dressUp: {
+          position: 'relative',
+          width: 300,
+          height: 450,
+        },
         dressPart: {
           position: 'absolute',
-          width: 200,
-          height: 300,
+          width: 300,
+          height: 450,
           top: 0,
           left: 0,
         }
@@ -48,28 +59,22 @@ Page({
       that2.widget.renderToCanvas({
         wxml,
         style
-      })
-    }, 50)
+      }).then(wx.hideLoading())
+    }, 1500)
   },
   saveImg() {
-    wx.canvasToTempFilePath({
-      x: 0,
-      y: 0,
-      width: 200,                     //画布宽高
-      height: 300,
-      destWidth: 800,                 //画布宽高*dpr 以iphone6为准
-      destHeight: 1200,
-      canvasId: 'canvas',
-      success: function (res) {
-        wx.saveImageToPhotosAlbum({
-          filePath: res.tempFilePath,
-          success: function (res) {
-            wx.showToast({
-              title: '保存成功！'
-            })
-          }
-        })  
-      }
+    this.widget.canvasToTempFilePath().then(res => {
+      this.setData({
+        src: res.tempFilePath,
+      })
+      wx.saveImageToPhotosAlbum({
+        filePath: res.tempFilePath,
+        success() {
+          wx.showToast({
+            title: '保存成功',
+          })
+        },
+      })
     })
   },
 })

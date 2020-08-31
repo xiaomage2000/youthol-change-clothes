@@ -10,11 +10,11 @@
   font-size: 16px;
 }
 .options {
-  margin: 40px 0 0 0;
+  margin: 40px 0;
 }
 
 .widget-view {
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 450px;
   margin: 0 auto;
 }
