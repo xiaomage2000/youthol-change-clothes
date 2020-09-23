@@ -36,7 +36,7 @@ Page({
         <image src="/model/coat${that2.data.coatIndex}.png" class="dress-part"></image>
         <image src="/model/eye${that2.data.eyeIndex}.png" class="dress-part"></image>
         <image src="/model/mouse${that2.data.mouseIndex}.png" class="dress-part"></image>
-        <image src="/model/hair${that2.data.hairIndex}.png" class="dress-part"></image>
+        <image src="/model/pant${that2.data.pantIndex}.png" class="dress-part"></image>
       </view>
           `
       const style = {
